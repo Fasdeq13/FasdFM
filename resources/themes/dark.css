@@ -1,0 +1,240 @@
+@define-color fasdfm_bg #2b2b2d;
+@define-color fasdfm_sidebar_bg #262628;
+@define-color fasdfm_content_bg #1f1f21;
+@define-color fasdfm_text_primary #f0f0f0;
+@define-color fasdfm_text_secondary #a3a3a3;
+@define-color fasdfm_text_tertiary #7a7a7a;
+@define-color fasdfm_border #3a3a3c;
+@define-color fasdfm_selected_bg #1e3a5f;
+@define-color fasdfm_selected_text #5aa5ff;
+@define-color fasdfm_hover_bg #333335;
+@define-color fasdfm_accent #4a90f0;
+@define-color fasdfm_pill_bg #333335;
+@define-color fasdfm_pill_active_bg #3d3d40;
+@define-color fasdfm_toolbar_bg #242426;
+@define-color fasdfm_search_bg #333335;
+@define-color fasdfm_tag_urgent #e63946;
+@define-color fasdfm_tag_work #f2994a;
+@define-color fasdfm_tag_vacation #f2c94c;
+@define-color fasdfm_status_green #34c759;
+@define-color fasdfm_status_grey #6b6b6b;
+
+window.fasdfm-window {
+    background-color: @fasdfm_bg;
+    border-radius: 12px;
+}
+
+box.fasdfm-root {
+    background-color: @fasdfm_bg;
+    border-radius: 12px;
+}
+
+box.fasdfm-sidebar {
+    background-color: @fasdfm_sidebar_bg;
+    padding: 16px 12px;
+    min-width: 190px;
+}
+
+label.fasdfm-sidebar-section {
+    color: @fasdfm_text_tertiary;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    margin-left: 8px;
+}
+
+button.fasdfm-sidebar-item {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 8px;
+    color: @fasdfm_text_primary;
+    font-size: 13px;
+}
+
+button.fasdfm-sidebar-item:hover {
+    background-color: @fasdfm_hover_bg;
+}
+
+button.fasdfm-sidebar-item.selected {
+    background-color: @fasdfm_selected_bg;
+    color: @fasdfm_selected_text;
+}
+
+label.fasdfm-tag-label {
+    font-size: 13px;
+    color: @fasdfm_text_primary;
+}
+
+box.fasdfm-content {
+    background-color: @fasdfm_content_bg;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+box.fasdfm-toolbar {
+    background-color: @fasdfm_toolbar_bg;
+    padding: 12px 20px 8px 20px;
+    border-top-right-radius: 12px;
+}
+
+label.fasdfm-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: @fasdfm_text_primary;
+}
+
+button.fasdfm-nav-btn {
+    background: transparent;
+    border: none;
+    padding: 4px;
+    border-radius: 6px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+button.fasdfm-nav-btn:hover {
+    background-color: @fasdfm_hover_bg;
+}
+
+button.fasdfm-nav-btn:disabled {
+    opacity: 0.35;
+}
+
+entry.fasdfm-search {
+    background-color: @fasdfm_search_bg;
+    border: none;
+    border-radius: 18px;
+    padding: 6px 14px;
+    min-height: 20px;
+    color: @fasdfm_text_primary;
+}
+
+button.fasdfm-icon-btn {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+button.fasdfm-icon-btn:hover {
+    background-color: @fasdfm_hover_bg;
+}
+
+box.fasdfm-breadcrumb-bar {
+    padding: 10px 20px;
+    background-color: @fasdfm_content_bg;
+}
+
+button.fasdfm-crumb {
+    background-color: @fasdfm_pill_bg;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 18px;
+    color: @fasdfm_text_secondary;
+    font-size: 13px;
+}
+
+button.fasdfm-crumb.active {
+    background-color: @fasdfm_pill_active_bg;
+    color: @fasdfm_text_primary;
+    font-weight: 600;
+}
+
+button.fasdfm-crumb-add {
+    background-color: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: @fasdfm_text_tertiary;
+}
+
+button.fasdfm-crumb-add:hover {
+    background-color: @fasdfm_hover_bg;
+}
+
+scrolledwindow.fasdfm-grid-scroll {
+    background-color: @fasdfm_content_bg;
+}
+
+flowbox.fasdfm-grid {
+    background-color: @fasdfm_content_bg;
+    padding: 12px 20px;
+}
+
+flowboxchild.fasdfm-tile {
+    padding: 4px;
+    border-radius: 10px;
+}
+
+box.fasdfm-tile-inner {
+    padding: 6px;
+    border-radius: 10px;
+}
+
+box.fasdfm-tile-inner:hover {
+    background-color: @fasdfm_hover_bg;
+}
+
+box.fasdfm-tile-inner.selected {
+    background-color: @fasdfm_selected_bg;
+}
+
+label.fasdfm-tile-name {
+    font-size: 12px;
+    color: @fasdfm_text_primary;
+}
+
+label.fasdfm-tile-name.name-selected {
+    background-color: @fasdfm_accent;
+    color: white;
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-weight: 600;
+}
+
+label.fasdfm-tile-status-dot {
+    font-size: 8px;
+}
+
+treeview.fasdfm-list {
+    background-color: @fasdfm_content_bg;
+    color: @fasdfm_text_primary;
+}
+
+treeview.fasdfm-list:selected {
+    background-color: @fasdfm_selected_bg;
+    color: @fasdfm_selected_text;
+}
+
+menu.fasdfm-context-menu {
+    background-color: @fasdfm_content_bg;
+    border-radius: 10px;
+    padding: 6px;
+    border: 1px solid @fasdfm_border;
+}
+
+menuitem.fasdfm-context-menu {
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: @fasdfm_text_primary;
+    font-size: 13px;
+}
+
+menuitem.fasdfm-context-menu:hover {
+    background-color: @fasdfm_hover_bg;
+}
+
+separator.fasdfm-sep {
+    background-color: @fasdfm_border;
+    margin: 6px 4px;
+}
+
+*.fasdfm-rubberband {
+    background-color: alpha(@fasdfm_accent, 0.2);
+    border: 1px solid @fasdfm_accent;
+    border-radius: 3px;
+}
