@@ -14,6 +14,22 @@ import plugin_loader
 APPLICATIONS_URI = "fasdfm://applications"
 
 
+def resources_dir():
+    env_path = os.environ.get("FASDFM_RESOURCES_DIR")
+    if env_path and os.path.isdir(env_path):
+        return env_path
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidate = os.path.join(os.path.dirname(here), "resources")
+    if os.path.isdir(candidate):
+        return candidate
+    candidate = os.path.join(here, "resources")
+    if os.path.isdir(candidate):
+        return candidate
+    raise FileNotFoundError(
+        "Could not locate the resources directory. Set FASDFM_RESOURCES_DIR."
+    )
+
+
 def format_size(n):
     if n < 1024:
         return "{} B".format(n)
@@ -125,10 +141,7 @@ class FasdfmWindow(Gtk.Window):
 
     def _load_css(self):
         theme_name = self.settings.get("theme", "light")
-        css_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-            "resources", "themes", "{}.css".format(theme_name)
-        )
+        css_path = os.path.join(resources_dir(), "themes", "{}.css".format(theme_name))
         provider = Gtk.CssProvider()
         provider.load_from_path(css_path)
         Gtk.StyleContext.add_provider_for_screen(
@@ -138,10 +151,7 @@ class FasdfmWindow(Gtk.Window):
 
     def switch_theme(self, theme_name):
         self.settings.set("theme", theme_name)
-        css_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-            "resources", "themes", "{}.css".format(theme_name)
-        )
+        css_path = os.path.join(resources_dir(), "themes", "{}.css".format(theme_name))
         self.css_provider.load_from_path(css_path)
 
     def _build_ui(self):

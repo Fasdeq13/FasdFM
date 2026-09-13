@@ -1,7 +1,27 @@
 import ctypes
 import os
 
-LIB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "build", "libfasdfm.so")
+
+def _find_lib_path():
+    env_path = os.environ.get("FASDFM_LIB_PATH")
+    if env_path and os.path.isfile(env_path):
+        return env_path
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidate = os.path.join(os.path.dirname(here), "build", "libfasdfm.so")
+    if os.path.isfile(candidate):
+        return candidate
+    candidate = os.path.join(here, "libfasdfm.so")
+    if os.path.isfile(candidate):
+        return candidate
+    candidate = os.path.join(here, "build", "libfasdfm.so")
+    if os.path.isfile(candidate):
+        return candidate
+    raise FileNotFoundError(
+        "Could not locate libfasdfm.so. Set FASDFM_LIB_PATH or rebuild with build.sh."
+    )
+
+
+LIB_PATH = _find_lib_path()
 
 lib = ctypes.CDLL(LIB_PATH)
 
